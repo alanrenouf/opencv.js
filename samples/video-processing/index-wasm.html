@@ -1,68 +1,114 @@
 <!DOCTYPE html>
-<html >
+<html>
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-  <title>OpenCV.js Video Processing (WebAssembly)</title>
-  <link rel="stylesheet" href="css/style.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1, maximum-scale=1">
+  <title>VMware Edge Compute Stack</title>
+  <link rel="stylesheet" href="https://unpkg.com/@cds/core/global.min.css" />
+  <link rel="stylesheet" href="https://unpkg.com/@cds/core/styles/theme.dark.min.css" />
+  <link rel="stylesheet" href="https://unpkg.com/@clr/ui/clr-ui.min.css" />
+  <link rel="stylesheet" href="../css/style.css">
+  <style>
+      /* Add your custom styles here */
+      .custom-border {
+          border: 2px solid #007bff;
+          padding: 20px;
+          border-radius: 10px;
+      }
+
+      .title {
+          font-size: 24px;
+          font-weight: bold;
+          margin-bottom: 10px;
+      }
+
+      .subtitle {
+          font-size: 18px;
+          color: #6c757d;
+          margin-bottom: 20px;
+      }
+  </style>
+
 </head>
-<body>
-<div id="info" class="text-center">
-  OpenCV.js is loading...
-</div>
-<div id="container" class="invisible">
-  <table cellpadding="0" cellspacing="0" width="100%" border="0">
-    <tr>
-      <td></td>
-      <td>
-        <div class="text-center">
-          <span>Current Filter: </span><span id="filterName">Pass Through</span>
+<body cds-theme="light" />
+  <div class="main-container">
+    <header class="header-6">
+      <div class="branding">
+        <a href="javascript://">
+          <cds-icon shape="vm-bug"></cds-icon>
+          <span class="title">VMware Edge Compute Stack - Sample Apps</span>
+        </a>
+      </div>
+      <div class="settings">
+        <a href="javascript://" class="nav-link nav-icon">
+          <cds-icon shape="cog"></cds-icon>
+        </a>
+      </div>
+    </header>
+    <nav class="subnav">
+      <ul class="nav">
+        <li class="nav-item">
+          <a class="nav-link" href="../index.html">Dashboard</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="../face-detection/index-wasm.html">Face Detection</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="../video-processing/index-wasm.html">Video Processing</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="../help/index.html">Help</a>
+        </li>
+      </ul>
+    </nav>
+    <p></p>
+    <div id="info" class="text-center">
+      OpenCV.js is loading...
+    </div>
+    <div id="container" class="invisible">
+      <table cellpadding="0" cellspacing="0" width="100%" border="0">
+        <tr>
+          <td></td>
+          <td>
+            <div class="text-center">
+              <span>Current Filter: </span><span id="filterName">Pass Through</span>
+            </div>
+          </td>
+          <td>
+            <div>Select Filter:</div>
+          </td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>
+            <canvas class="center-block" id="canvasOutput" width=320 height=240></canvas>
+          </td>
+          <td>
+            <div id="guiContainer"></div>
+          </td>
+          <td></td>
+        </tr>
+      </table>
+        <div class="invisible">
+          <video id="video" class="hidden">Your browser does not support the video tag.</video>
         </div>
-      </td>
-      <td>
-        <div>Select Filter:</div>
-      </td>
-      <td></td>
-    </tr>
-    <tr>
-      <td></td>
-      <td>
-        <canvas class="center-block" id="canvasOutput" width=320 height=240></canvas>
-      </td>
-      <td>
-        <div id="guiContainer"></div>
-      </td>
-      <td></td>
-    </tr>
-  </table>
-  <div class="invisible">
-    <video id="video" class="hidden">Your browser does not support the video tag.</video>
+    </div>
   </div>
-</div>
-<script src="../libs/adapter-latest.js"></script>
-<script src="../libs/stats.min.js"></script>
-<script src="../libs/dat.gui.min.js"></script>
-<script src="../libs/utils.js"></script>
-<script>
-var featuresReady = checkFeatures(document.getElementById("info"), {webrtc: true, wasm: true});
-</script>
-<script src="js/index.js"></script>
-<script>
-var Module = {
-  wasmBinaryFile: '../../build/wasm/opencv_js.wasm',
-  _main: function() {opencvIsReady();}
-};
-</script>
-<script async src="../../build/wasm/opencv.js"></script>
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-  ga('create', 'UA-104754587-1', 'auto');
-  ga('send', 'pageview');
-
-</script>
+  <script src="../libs/adapter-latest.js"></script>
+  <script src="../libs/stats.min.js"></script>
+  <script src="../libs/dat.gui.min.js"></script>
+  <script src="../libs/utils.js"></script>
+  <script>
+  var featuresReady = checkFeatures(document.getElementById("info"), {webrtc: true, wasm: true});
+  </script>
+  <script src="js/index.js"></script>
+  <script>
+  var Module = {
+    wasmBinaryFile: '../../build/wasm/opencv_js.wasm',
+    _main: function() {opencvIsReady();}
+  };
+  </script>
+  <script async src="../../build/wasm/opencv.js"></script>
 </body>
 </html>

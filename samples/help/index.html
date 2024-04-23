@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1, maximum-scale=1">
+  <title>VMware Edge Compute Stack</title>
+  <link rel="stylesheet" href="https://unpkg.com/@cds/core/global.min.css" />
+  <link rel="stylesheet" href="https://unpkg.com/@cds/core/styles/theme.dark.min.css" />
+  <link rel="stylesheet" href="https://unpkg.com/@clr/ui/clr-ui.min.css" />
+  <style>
+      /* Add your custom styles here */
+      .custom-border {
+          border: 2px solid #007bff;
+          padding: 20px;
+          border-radius: 10px;
+      }
+
+      .title {
+          font-size: 24px;
+          font-weight: bold;
+          margin-bottom: 10px;
+      }
+
+      .subtitle {
+          font-size: 18px;
+          color: #6c757d;
+          margin-bottom: 20px;
+      }
+  </style>
+
+</head>
+
+<body cds-theme="light" />
+<div class="main-container">
+  <header class="header-6">
+    <div class="branding">
+      <a href="javascript://">
+        <cds-icon shape="vm-bug"></cds-icon>
+        <span class="title">VMware Edge Compute Stack - Sample Apps</span>
+      </a>
+    </div>
+    <div class="settings">
+      <a href="javascript://" class="nav-link nav-icon">
+        <cds-icon shape="cog"></cds-icon>
+      </a>
+    </div>
+  </header>
+  <nav class="subnav">
+    <ul class="nav">
+      <li class="nav-item">
+        <a class="nav-link" href="../index.html">Dashboard</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="../face-detection/index-wasm.html">Face Detection</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="../video-processing/index-wasm.html">Video Processing</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" active href="../help/index.html">Help</a>
+      </li>
+    </ul>
+  </nav>
+  <div class="content-container">
+    <div class="content-area">
+     <h1>Instructions</h1>
+     <h2>Chrome</h2>
+     <p></p>
+     <ol class="list">
+      <li>In Chrome head to <b>chrome://flags/#unsafely-treat-insecure-origin-as-secure</b></li>
+      <li>Enable <b>Insecure origins treated as secure</b></li>
+      <li>In the text box enter the url of this website, example: http://192.168.5.240:30888</li>
+      <li>Restart the Chrome browser and head back to this site.</li>
+    </ol> 
+    <p>For feedback or issues email <a href="mailto:alan.renouf@broadcom.com">Alan Renouf</a></p>
+    </div>
+  </div>
+</body>
+</html>

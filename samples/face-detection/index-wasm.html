@@ -1,24 +1,86 @@
 <!DOCTYPE html>
-<html >
+<html>
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-  <title>OpenCV.js Face Detection (WebAssembly)</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1, maximum-scale=1">
+  <title>VMware Edge Compute Stack</title>
+  <link rel="stylesheet" href="https://unpkg.com/@cds/core/global.min.css" />
+  <link rel="stylesheet" href="https://unpkg.com/@cds/core/styles/theme.dark.min.css" />
+  <link rel="stylesheet" href="https://unpkg.com/@clr/ui/clr-ui.min.css" />
   <link rel="stylesheet" href="../css/style.css">
-</head>
+  <style>
+      /* Add your custom styles here */
+      .custom-border {
+          border: 2px solid #007bff;
+          padding: 20px;
+          border-radius: 10px;
+      }
 
-<body>
+      .title {
+          font-size: 24px;
+          font-weight: bold;
+          margin-bottom: 10px;
+      }
+
+      .subtitle {
+          font-size: 18px;
+          color: #6c757d;
+          margin-bottom: 20px;
+      }
+  </style>
+
+</head>
+<body cds-theme="light" />
+  <div class="main-container">
+    <header class="header-6">
+      <div class="branding">
+        <a href="javascript://">
+          <cds-icon shape="vm-bug"></cds-icon>
+          <span class="title">VMware Edge Compute Stack - Sample Apps</span>
+        </a>
+      </div>
+      <div class="settings">
+        <a href="javascript://" class="nav-link nav-icon">
+          <cds-icon shape="cog"></cds-icon>
+        </a>
+      </div>
+    </header>
+    <nav class="subnav">
+      <ul class="nav">
+        <li class="nav-item">
+          <a class="nav-link" href="../index.html">Dashboard</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="../face-detection/index-wasm.html">Face Detection</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="../video-processing/index-wasm.html">Video Processing</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="../help/index.html">Help</a>
+        </li>
+      </ul>
+    </nav>
+<p></p>
 <div id="info" class="text-center">
   OpenCV.js is loading...
 </div>
 <div id="container">
   <canvas class="center-block" id="canvasOutput" width=320 height=240></canvas>
 </div>
-<div class="invisible">
-  <input type="checkbox" id="face" name="classifier" value="face" checked>
-  <label for="face">face</label>
-  <input type="checkbox" id="eye" name="cascade" value="eye">
-  <label for="eye">eye</label>
+<p></p>
+<div>
+  <clr-checkbox-container clrInline>
+    <label>Detect:</label>
+    <clr-checkbox-wrapper>
+      <input type="checkbox" clrCheckbox id="face" name="classifier" value="face" checked/>
+      <label for="face">face</label>
+    </clr-checkbox-wrapper>
+    <clr-checkbox-wrapper>
+      <input type="checkbox" clrCheckbox id="eye" name="cascade" value="eye" />
+      <label for="eye">eye</label>
+    </clr-checkbox-wrapper>
+  </clr-checkbox-container>
 </div>
 <div class="invisible">
   <video id="video" class="hidden">Your browser does not support the video tag.</video>
